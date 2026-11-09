@@ -30,8 +30,8 @@ needed.
 | [`pico_sdk_import.cmake`](pico_sdk_import.cmake) | Raspberry Pi's SDK import helper; its BSD license is in the file. |
 | [`LICENSE`](LICENSE) | AGPL-3.0 license used by the parent Pico FIDO repository. |
 
-This folder can be copied into its own GitHub repository. Building still needs
-the Pico SDK and an ARM compiler; flashing the supplied UF2 does not.
+Building needs the Pico SDK and an ARM compiler; flashing the supplied UF2
+does not.
 
 ## Fast path: flash the supplied UF2
 
@@ -180,17 +180,3 @@ Back up credentials you need before switching firmware. The UF2 in this
 folder does not deliberately erase the FIDO storage area, but another
 firmware's data should never be assumed recoverable without a backup.
 
-## Publishing
-
-1. Create an empty repository in your GitHub account.
-2. Copy **this folder's files** into it, preserving the `firmware/` directory.
-   You do not need the whole Pico FIDO checkout, its local builds, flash
-   backups, or unrelated changes.
-3. Upload the files or commit and push them to **your new repository**. GitHub
-   will render this `README.md` as the project page.
-4. Keep `firmware/pico_keyboard_demo.uf2` if you want readers to flash without
-   building. Include the source files and `LICENSE` with the binary.
-
-The USB identifier `0xCAFE:0x2040` in `usb_descriptors.c` is a development
-example. Use an assigned VID/PID for a distributed product. This project is
-not affiliated with Spotify, The Weeknd, or Raspberry Pi.
