@@ -33,6 +33,20 @@ needed.
 Building needs the Pico SDK and an ARM compiler; flashing the supplied UF2
 does not.
 
+### Starting from another firmware
+
+The existing firmware does not need to be Pico FIDO. On an RP2040-Zero, holding
+**BOOT** while connecting USB enters the RP2040's ROM bootloader, which works
+independently of the firmware already in flash. Copying this project's UF2 to
+`RPI-RP2` installs the keyboard demo as the firmware that runs on startup. You
+do not need to erase the board first. Save the previous firmware's UF2 and
+back up any data or credentials you need before switching. Reflashing the old
+UF2 restores its program, but it does not guarantee recovery of its stored
+data. [Raspberry Pi explains the ROM BOOTSEL mode](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html).
+
+If the **hardware** is a different board, do not use the bundled RP2040-Zero
+UF2. Build from source with that board's `PICO_BOARD` setting.
+
 ## Fast path: flash the supplied UF2
 
 1. On a Windows PC, install and sign in to the [Spotify desktop app](https://www.spotify.com/download/). Select an **English (US)** keyboard layout. The demo uses US key positions.
